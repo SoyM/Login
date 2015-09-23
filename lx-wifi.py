@@ -32,3 +32,7 @@ print request
 response = urllib2.urlopen(request)
 text = response.read()
 print text
+print '\n\n\n-----\nwelcome to blog.longlongjin.com\n-----\n\n\n'
+content = raw_input("Please press enter to exit.")
+if (content != ""):
+	exit
