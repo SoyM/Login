@@ -30,7 +30,7 @@ request = urllib2.Request(hosturl, postData, headers)
 
 response = urllib2.urlopen(request)
 text = response.read()
-
+print text
 print        11111111111111111111111111111111111111001111111111111111111111111
 time.sleep(0.1)
 print        11111111111111111111111111111111111100011111111111111111111111111
