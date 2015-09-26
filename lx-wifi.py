@@ -5,8 +5,9 @@ import cookielib
 import socket
 import time
 print 'Start'
-print 'Wait A Moment\n'
+print 'Wait A Moment'
 localip = socket .gethostbyname(socket .gethostname() )
+print localip
 hosturl = 'http://sj.dglongxi.com:88/Weixin.aspx?nasIp=113.98.10.144' \
           '&nasPortId=DG-WJ-BAS-3.-43001290200000%vlan&ip='
 hosturl = hosturl + localip + '&mac='
