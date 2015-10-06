@@ -109,6 +109,18 @@ print '                 Produce by blog.longlongjin.com                  '
 print '                                SoyM                       '
 print '       | | | | | | | | | | | | | | | | | | | | | | | | |   \n\n\n\n  ',
 
-content = raw_input("Please press enter to exit.")
-if (content != ""):
-	exit
+content = raw_input("Please press enter to exit or press'n'to have a heartbeat.")
+if (content != "n"):
+    exit()
+else:
+    print 'Now we start a heartbeat.'
+    timer = 0
+while True:
+    if timer==10:
+
+        break
+    timer = timer+1
+    request = urllib2.Request(hosturl, postData, headers)
+    response = urllib2.urlopen(request)
+    print 'debug'
+    time.sleep(120)
