@@ -116,11 +116,11 @@ else:
     print 'Now we start a heartbeat.'
     timer = 0
 while True:
-    if timer==10:
+    if timer == 30:
 
         break
     timer = timer+1
     request = urllib2.Request(hosturl, postData, headers)
     response = urllib2.urlopen(request)
-    print 'debug'
+    print 'A heartbeat was done.'
     time.sleep(120)
