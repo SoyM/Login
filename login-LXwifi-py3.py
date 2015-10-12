@@ -1,9 +1,10 @@
-#!/usr/bin/python
-
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
 import urllib.request
 import http.cookiejar
 import socket
 import time
+import os.system
 print ('Start')
 print ('Wait A Moment')
 localip = socket .gethostbyname(socket .gethostname() )
@@ -26,7 +27,7 @@ headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20
 postData = '__VIEWSTATE=%2FwEPDwULLTE3MTc4Nzg1MTVkZCq9h%2BftRRY%2Fu04HpKFIVPCw314wEn0AtpMtlrxX2jVP' \
            '&__VIEWSTATEGENERATOR=79323071' \
            '&__EVENTVALIDATION=%2FwEWAwLwwNWQCAK2xpONDwKBk7XADC4BQdj5QRNnVO46EHLJd' \
-           '%2FkvExw%2FAgGgV8RYixzJe6wH&tb_pw=54321&btn_ok=%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%BD%91'
+           '%2FkvExw%2FAgGgV8RYixzJe6wH&tb_pw=54322&btn_ok=%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%BD%91'
 postData = postData.encode(encoding='UTF-8')
 
 request = urllib.request.Request(hosturl, postData, headers)
@@ -34,6 +35,12 @@ print(request )
 response = urllib.request.urlopen(hosturl,postData )
 text = response.read()
 print(text)
+
+return1=os.system('ping longlongjin.com')
+if return1:
+    print('\n\n\n\n\nERR_INTERNET_DISCONNECTED\n\n\n')
+else:
+    print('\n\n\n\n\nINTERNET_CONNECTED\n\n\n')
 
 content = input("Please press enter to exit or press'n'to have a heartbeat.\n\n\n\n\n\n")
 if (content != "n"):
