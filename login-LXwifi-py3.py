@@ -4,7 +4,7 @@ import urllib.request
 import http.cookiejar
 import socket
 import time
-import os.system
+import os
 print ('Start')
 print ('Wait A Moment')
 localip = socket .gethostbyname(socket .gethostname() )
