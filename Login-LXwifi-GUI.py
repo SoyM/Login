@@ -1,30 +1,34 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-
+import tkinter
 import tkinter as tk
 import urllib.request
 import http.cookiejar
 import socket
-import time
 import os
 import tkinter.messagebox
+from tkinter import *
+
 
 class Application(tk.Frame):
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
-        self.pack(pady=70, padx=160)
+        self.pack(pady=50, padx=180)
         self.createWidgets()
 
     def createWidgets(self):
 
+        self.LABLE = Label(root,text="Made by SoyM" )
+
+        self.LABLE.pack(side='bottom')
 
         self.LOGIN = tk.Button(self,text="Login",)
-        self.LOGIN.pack(side="top",pady=20)
+        self.LOGIN.pack(pady=10)
         self.LOGIN["command"] = self.login
 
-        self.QUIT = tk.Button(self, text="QUIT", fg="black",bg='red',
-                                            command=root.destroy)
-        self.QUIT.pack(side="bottom")
+        self.QUIT = tk.Button(self, text="QUIT", bg='red', command=root.destroy)
+        self.QUIT.pack()
+
 
 
     def login(self):
@@ -54,13 +58,10 @@ class Application(tk.Frame):
            '%2FkvExw%2FAgGgV8RYixzJe6wH&tb_pw=54321&btn_ok=%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%BD%91'
         postData = postData.encode(encoding='UTF-8')
 
-        request = urllib.request.Request(hosturl, postData, headers)
-        print(request )
-        response = urllib.request.urlopen(hosturl,postData )
-        text = response.read()
-        print(text)
+        urllib.request.Request(hosturl, postData, headers)
+        urllib.request.urlopen(hosturl,postData )
 
-        return1=os.system('ping longlongjin.com')
+        return1=os.system('ping baidu.com')
         if return1:
             print('\n\n\n\n\nERR_INTERNET_DISCONNECTED\n\n\n')
             tkinter.messagebox.showinfo("NETWORK", "DISCONNECTED")
@@ -69,8 +70,7 @@ class Application(tk.Frame):
             tkinter.messagebox.showinfo("NETWORK", "Your network is connecting")
 
 
-
-
 root = tk.Tk()
+root.title('LX-wifi Login')
 app = Application(master=root)
 app.mainloop()
