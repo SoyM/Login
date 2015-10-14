@@ -1,6 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 # -*- coding:utf-8 -*-
-from tkinter import *
+
 import tkinter as tk
 import urllib.request
 import http.cookiejar
@@ -16,10 +16,7 @@ class Application(tk.Frame):
         self.createWidgets()
 
     def createWidgets(self):
-        self.hi_there = tk.Button(self)
-        self.hi_there["text"] = "Hello World\n(click me)"
-        self.hi_there["command"] = self.say_hi
-        self.hi_there.pack(side="top")
+
 
         self.LOGIN = tk.Button(self,text="Login",)
         self.LOGIN.pack(side="top",pady=20)
@@ -29,8 +26,6 @@ class Application(tk.Frame):
                                             command=root.destroy)
         self.QUIT.pack(side="bottom")
 
-    def say_hi(self):
-        print("hi there, everyone!")
 
     def login(self):
 
@@ -71,7 +66,7 @@ class Application(tk.Frame):
             tkinter.messagebox.showinfo("NETWORK", "DISCONNECTED")
         else:
             print('\n\n\n\n\nINTERNET_CONNECTED\n\n\n')
-            tkinter.messagebox.showinfo("NETWORK", "CONNECTED")
+            tkinter.messagebox.showinfo("NETWORK", "Your network is connecting")
 
 
 
