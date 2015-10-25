@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
 import urllib2
 import cookielib
-import socket
 import time
 import re
 print 'Start'
@@ -17,7 +16,11 @@ request = urllib2.Request(url,headers=headers)
 response = urllib2.urlopen(request)
 text = response.read().decode('utf-8')
 localip = re.search('119.\d+.\d+.\d+',text)
-localip =localip.group(0)
+if localip == None:
+    print 'Please unplug the network cable and connect to WIFI.\n'
+    raw_input()
+    exit()
+localip = localip.group()
 print localip
 
 #login
