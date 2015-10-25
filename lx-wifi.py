@@ -1,13 +1,26 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import urllib2
 import cookielib
 import socket
 import time
+import re
 print 'Start'
 print 'Wait A Moment'
-localip = socket .gethostbyname(socket .gethostname() )
+
+#get the ip of wireless network adapter
+url = "http://sj.dglongxi.com:88/?nasIp=113.98.10.144&nasPortId=DG-WJ-BAS-3.-43001290200000@vlan"
+headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1',
+           'Referer' : 'http://sj.dglongxi.com:88/?nasIp=113.98.10.144&nasPortId=DG-WJ-BAS-3.-43001290200000@vlan'}
+request = urllib2.Request(url,headers=headers)
+response = urllib2.urlopen(request)
+text = response.read().decode('utf-8')
+localip = re.search('119.\d+.\d+.\d+',text)
+localip =localip.group(0)
 print localip
+
+#login
 hosturl = 'http://sj.dglongxi.com:88/Weixin.aspx?nasIp=113.98.10.144' \
           '&nasPortId=DG-WJ-BAS-3.-43001290200000%vlan&ip='
 hosturl = hosturl + localip + '&mac='
@@ -18,20 +31,13 @@ opener = urllib2.build_opener(cookie_support, urllib2.HTTPHandler)
 urllib2.install_opener(opener)
 
 h = urllib2.urlopen(hosturl)
-
-
-headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1',
-           'Referer' : 'http://sj.dglongxi.com:88/?nasIp=113.98.10.144&nasPortId=DG-WJ-BAS-3.-43001290200000@vlan'}
-
-
 postData = '__VIEWSTATE=%2FwEPDwULLTE3MTc4Nzg1MTVkZCq9h%2BftRRY%2Fu04HpKFIVPCw314wEn0AtpMtlrxX2jVP&__VIEWSTATEGENERATOR=79323071&__EVENTVALIDATION=%2FwEWAwLwwNWQCAK2xpONDwKBk7XADC4BQdj5QRNnVO46EHLJd%2FkvExw%2FAgGgV8RYixzJe6wH&tb_pw=54321&btn_ok=%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%BD%91'
-
-
 request = urllib2.Request(hosturl, postData, headers)
-
+print request
 response = urllib2.urlopen(request)
 text = response.read()
 print text
+
 print        11111111111111111111111111111111111111001111111111111111111111111
 time.sleep(0.1)
 print        11111111111111111111111111111111111100011111111111111111111111111
@@ -116,9 +122,6 @@ else:
     print 'Now we start a heartbeat.'
     timer = 0
 while True:
-    if timer == 30:
-
-        break
     timer = timer+1
     request = urllib2.Request(hosturl, postData, headers)
     response = urllib2.urlopen(request)
