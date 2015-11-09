@@ -34,7 +34,7 @@ opener = urllib2.build_opener(cookie_support, urllib2.HTTPHandler)
 urllib2.install_opener(opener)
 
 h = urllib2.urlopen(hosturl)
-postData = '__VIEWSTATE=%2FwEPDwULLTE3MTc4Nzg1MTVkZCq9h%2BftRRY%2Fu04HpKFIVPCw314wEn0AtpMtlrxX2jVP&__VIEWSTATEGENERATOR=79323071&__EVENTVALIDATION=%2FwEWAwLwwNWQCAK2xpONDwKBk7XADC4BQdj5QRNnVO46EHLJd%2FkvExw%2FAgGgV8RYixzJe6wH&tb_pw=54321&btn_ok=%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%BD%91'
+postData = '__VIEWSTATE=%2FwEPDwULLTE3MTc4Nzg1MTVkZCq9h%2BftRRY%2Fu04HpKFIVPCw314wEn0AtpMtlrxX2jVP&__VIEWSTATEGENERATOR=79323071&__EVENTVALIDATION=%2FwEWAwLwwNWQCAK2xpONDwKBk7XADC4BQdj5QRNnVO46EHLJd%2FkvExw%2FAgGgV8RYixzJe6wH&tb_pw=13579&btn_ok=%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%BD%91'
 request = urllib2.Request(hosturl, postData, headers)
 print request
 response = urllib2.urlopen(request)
