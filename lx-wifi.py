@@ -26,7 +26,7 @@ print localip
 #login
 hosturl = 'http://sj.dglongxi.com:88/Weixin.aspx?nasIp=113.98.10.144' \
           '&nasPortId=DG-WJ-BAS-3.-43001290200000%vlan&ip='
-hosturl = hosturl + localip + '&mac='
+hosturl = hosturl + localip + '&mac=24%3a0A%3a64%3a8D%3a22%3aEE'
 
 cj = cookielib.LWPCookieJar()
 cookie_support = urllib2.HTTPCookieProcessor(cj)
@@ -34,11 +34,7 @@ opener = urllib2.build_opener(cookie_support, urllib2.HTTPHandler)
 urllib2.install_opener(opener)
 
 h = urllib2.urlopen(hosturl)
-<<<<<<< HEAD
-postData = '__VIEWSTATE=%2FwEPDwULLTE3MTc4Nzg1MTVkZGs%2B1D9u%2F2jY5Iq0Fb%2BgJ1BTbR2KA%2FtuycWw8o7vnrBm&__EVENTVALIDATION=%2FwEWAwK%2FiNbPAQK2xpONDwKBk7XADM4ZrM6S97akelpaxVXbsE0y%2BqYhoM9YyU%2BLtel%2FMm1x&tb_pw=13579&btn_ok=%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%BD%91'
-=======
-postData = '__VIEWSTATE=%2FwEPDwULLTE3MTc4Nzg1MTVkZCq9h%2BftRRY%2Fu04HpKFIVPCw314wEn0AtpMtlrxX2jVP&__VIEWSTATEGENERATOR=79323071&__EVENTVALIDATION=%2FwEWAwLwwNWQCAK2xpONDwKBk7XADC4BQdj5QRNnVO46EHLJd%2FkvExw%2FAgGgV8RYixzJe6wH&tb_pw=13579&btn_ok=%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%BD%91'
->>>>>>> dfe8e95897620bed62e84e8da1352df721f52769
+postData = '__VIEWSTATE=%2FwEPDwULLTE3MTc4Nzg1MTVkZPhqpfH1ePGV6GsRes7lryCAzXe54WDNEryIR8ZrnczT&__EVENTVALIDATION=%2FwEWAwKG9NiwAgK2xpONDwKBk7XADOvG3c%2BuSo9%2FqSH9rT1M63AvZZHRO3REc4Upx0WVBCsp&tb_pw=02468&btn_ok=%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%BD%91'
 request = urllib2.Request(hosturl, postData, headers)
 response = urllib2.urlopen(request)
 text = response.read()
